@@ -1,0 +1,22 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Mon envolope><monEnvolope-->
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:whit="http://www.tekup.de/soap/models/whitetest">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <whit:StudentRequest>
+            <whit:studentId>1</whit:studentId>
+            <whit:examCode>100</whit:examCode>
+        </whit:StudentRequest>
+        <!--Question 1:> partie 3:  Error Message<q1-->
+                <soapenv:Fault>
+                    <faultcode xmlns="">soapenv:Client</faultcode>
+                    <faultstring>
+                        Il y'a un erreur.
+                    </faultstring>
+                </soapenv:Fault>
+    </soapenv:Body>
+</soapenv:Envelope>

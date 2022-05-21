@@ -1,0 +1,60 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:tns="http://www.tekup.de/soap/models/whitetest"
+targetNamespace="http://www.tekup.de/soap/models/whitetest" elementFormDefault="qualified">
+ 
+    <xsd:element name="StudentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="studentId" type="xsd:int"/>
+                <xsd:element name="examCode" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+ 
+    <xsd:element name="WhiteTestResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="student" type="tns:Student"/>
+                <xsd:element name="exam" type="tns:Exam"/>
+                <xsd:element name="date" type="xsd:dateTime"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <!-- Question 2 modifier le type d'addresse><q2-->
+    <xsd:complexType name="address">
+        <xsd:element name="number" type="xsd:int"/>
+        <xsd:element name="street" type="xsd:string"/>
+        <xsd:element name="city" type="xsd:string"/>
+        <xsd:element name="poste-code" type="xsd:int"/>
+    </xsd:complexType>
+    <!-- Question 3 service qui retourne la liste des examens disponible ><q3-->
+    <xsd:element name="ExamListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:group>
+                    <xsd:sequence>
+                     <xsd:element name="exam" type="tns:Exam"/>
+                    </xsd:sequence>
+                </xsd:group>
+
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="Student">
+        <xsd:sequence>
+			<xsd:element name="id" type="xsd:int"/>
+            <xsd:element name="name" type="xsd:string"/>
+            <!-- j'ai remplacé le type d'adrs de string a complex type address><q2-->
+            <xsd:element name="address" type="address"/>
+        </xsd:sequence>
+    </xsd:complexType>
+	
+	<xsd:complexType name="Exam">
+        <xsd:sequence>
+			<xsd:element name="code" type="xsd:string"/>
+            <xsd:element name="name" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+     
+</xsd:schema>
